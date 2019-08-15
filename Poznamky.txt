@@ -1,0 +1,42 @@
+A0
+
+technickej prehled prace
+
+uvod, hlavni cile prace, jak to dopadlo
+- v podstate miniatura prace
+
+obrazky ze hry
+
+schemata, jak to funguje
+- hlavnich principu navrhu
+
+neprehanet to s textem
+
+- aby z textu a schemat clovek pochopil, jak je to naprogramovany
+
+budu 3-4 minuty pred posterem prednaset o tom, co sem delal
+- treba vysvetlit szystem, jak se to nahrava podle nejakyho diagramu, co tam budu mit
+
+
+otazky budou hlavne z posudku
+- tejden pred obhajobou je dostanu
+- zeptaj se nejcasteji na negativni veci z posudku
+
+pokud tam treba najde chybu, tak je hezky zjistit a rict, proc to nefunguje, co tam je spatne
+
+
+poster az ten den obhajoby
+
+staci vytisknout na normalni papir, bude to viset jen chvilku uvnitr
+
+ten zikmunduf velikost pisma je tak minimum
+- aby bylo videt zhruba ze dvou metru
+- mozna vic obrazku nez textu nez ma zikmund
+
+graficky zpracovani ciste na me
+
+klidne pouzit obrazky a grafy z prace
+
+vic soustredit na architekturu aplikace
+
+ 

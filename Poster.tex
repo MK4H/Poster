@@ -1,0 +1,157 @@
+\documentclass[32pt, a0paper, portrait, margin=2mm, innermargin=10mm, colspace=10mm, subcolspace=8mm, blockverticalspace=10mm]{tikzposter}
+
+
+\usepackage[czech]{babel}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+
+\usepackage{amsmath}        % rozšíření pro sazbu matematiky
+\usepackage{amsfonts}       % matematické fonty
+\usepackage{amsthm}         % sazba vět, definic apod.
+\usepackage{bbding}         % balíček s nejrůznějšími symboly
+% (čtverečky, hvězdičky, tužtičky, nůžtičky, ...)
+\usepackage{bm}             % tučné symboly (příkaz \bm)
+\usepackage{graphicx}       % vkládání obrázků
+\usepackage{fancyvrb}       % vylepšené prostředí pro strojové písmo
+\usepackage{indentfirst}    % zavede odsazení 1. odstavce kapitoly
+\usepackage[numbers]{natbib}         % zajištuje možnost odkazovat na literaturu
+% stylem AUTOR (ROK), resp. AUTOR [ČÍSLO]
+\usepackage[nottoc]{tocbibind} % zajistí přidání seznamu literatury,
+% obrázků a tabulek do obsahu
+\usepackage{icomma}         % inteligetní čárka v matematickém módu
+\usepackage{dcolumn}        % lepší zarovnání sloupců v tabulkách
+\usepackage{booktabs}       % lepší vodorovné linky v tabulkách
+\usepackage{paralist}       % lepší enumerate a itemize
+\usepackage{xcolor}  % barevná sazba
+
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{adjustbox}
+\usepackage{enumitem}
+
+\usepackage{mwe} % for placeholder images
+
+
+% set theme parameters
+\title{UrhoRTS - platforma pro tvorbu realtimových strategických her}
+\author{Autor: Karel Maděra | Vedoucí: Mgr. Pavel Ježek, Ph. D. | 2019}
+
+\usetitlestyle[width=\textwidth, roundedcorners=0]{Default}
+
+% hides that the poster was created using latex and tikz
+\tikzposterlatexaffectionproofoff
+% begin document
+\begin{document}
+\maketitle
+\centering
+\begin{columns}
+    \column{0.32}
+    \block{Úvod}{
+		Realtimové strategické hry (RTS),  jsou poddruhem
+		strategických her, ve kterém se změny stavu odehrávají v přímé závislosti na změně
+		času v reálném světě. Vývoj tohoto druhu her je složitým procesem, skládajícím se z mnoha částí a zasahujícím do mnoha oborů. Cílem naší práce je vytvoření platformy zjednodušující tvorbu 3D RTS her implementací nejčastější součástí tohoto typu her a umožňující dodání zbylých částí, specifických pro danou hru, v podobě balíčku vytvářeného tvůrcem hry a přidávaného do nainstalované instance platformy na zařízení koncového hráče.
+    }
+
+    \block{Cíle}{
+		Cílem práce je vytvoření platformy pro tvorbu 3D RTS her, poskytující implementaci nejčastějších součástí těchto her a umožňující dodání součástí specifických vytvářenou hru v podobě balíčku, distribuovaného separátně od platformy. 
+
+		\begin{enumerate}
+			\item vlastnosti jednotek:
+				\begin{enumerate}
+					\item pohyb jednotek
+					\item ovládání jednotek
+					\item přidávání jednotek jako součást úrovně
+					\item útoky na blízko i na dálku
+				\end{enumerate}
+			\item vlastnosti budov:
+				\begin{enumerate}
+					\item rozšiřitelnost dostupného terénu o plochu budov
+					\item přidávání budov jako součástí mapy 
+					\item zničitelnost budov 
+					\item produkce jednotek, surovin, stavba budov pomocí budovy
+				\end{enumerate}
+			\item výzkum technologií:
+				\begin{enumerate}
+					\item postupné odemykání dostupných jednotek a budov, umožnit změny chování jednotek za běhu
+				\end{enumerate}
+			\item vlastnosti mapy:
+				\begin{enumerate}
+					\item rozdělení mapy na dlaždice
+					\item tvorbu terénu pomocí různých výšek dlaždic.
+					\item různé typy dlaždic. 
+					\item rozhraní pro získání aktuálního stavu  (jednotek a budov na dlaždici, typu dlaždice ...) 
+				\end{enumerate}
+			\item vlastnosti pro tvůrce balíčků:
+				\begin{enumerate}
+					\item platforma musí umožňovat přidávání balíčků za běhu, obsahujících
+					nové typy jednotek, budov, dlaždic, projektilů a hráčů spolu s jejich
+					modely, texturami a AI
+					\item platforma musí umožňovat použití přidaných balíčků pro tvorbu map
+					a uložení vytvořených map do balíčku použitého pro jejich tvorbu
+					\item editor map musí být rozšiřitelný o nástroje z balíčku
+					\item herní grafické rozhraní musí umožňovat tvůrci přidávat vlastní okna,
+					tlačítka a další prvky
+				\end{enumerate}
+			\item vlastnosti pro koncového hráče:
+				\begin{enumerate}
+					\item uživatelské rozhraní pro stolní počítače, umožňující vybírání balíčků,
+					map a oponentů, dále načítání a ukládání her, a nastavování zobrazení hry
+					\item herní uživatelské rozhraní musí obsahovat minimapu, poskytující hráči
+					přehled o větší části mapy než kterou vidí vlastní kamerou
+					\item ovládání kamery umožňující klasický top-down pohled, volné poletování
+					kamery po mapě a následování jednotky
+					\item ukládání a načítání hry
+				\end{enumerate}
+		\end{enumerate}
+
+
+
+    }
+
+    \column{0.36}
+    \block{Balíčky}{
+		Systém balíčků umožňuje distribuci her vytvořených za pomoci naší platformy. Každý balíček představuje právě jednu hru a obsahuje všechny její součásti. Těmito součástmi jsou:
+		
+		3D modely a textury,
+		logiku hry a umělou inteligenci hráčů a jednotek,
+		mapy a úrovně,
+		další, tvůrcem specifikované soubory.
+		
+		Všechny tyto součásti jsou poté za běhu platformy načteny a poskytnuty hráči pro využití při hře, jak pro hraní dodaných úrovní, tak pro tvorbu úplně nových úrovní za použití prvků z balíčku.
+		
+		Balíček je tvořen jedním XML souborem, popisujícím obsah balíčku.  Obsah tvoří jak data uložená přímo v tomto XML souboru, tak jiné soubory, pro které v XML souboru uvedeme jejich relativní cestu vůči adresáři obsahující XML soubor.
+		
+		Pro standardní přidání balíčku hráč umístí XML soubor balíčku a další data do libovolného podadresáře adresáře Packages, nejčastěji do zvláštního podadresáře pro každý z balíčků. Následně při běhu hry využitím našeho jednoduchého průzkumníka souborového systému specifikuje hráč cestu k XML souboru balíčku.
+		
+		Struktura XML balíčku je definována schématem GamePack.xsd, vůči kterému je každý balíček při přidání či načítání kontrolován. V případě, že není balíček validní, je daná operace zrušena.
+    }
+
+	\block{Logika a umělá inteligence}{
+		Jedním z hlavních cílů naší práce bylo umožnit využití jazyka C\# jako scriptovacího jazyka pro tvorbu logiky hry a umělé inteligence. Součástí balíčků může tedy být jedna či více .NET assembly, kterým říkáme pluginy. Tyto pluginy mohou definovat chování herních prvků, poskytovat nástroje pro editaci mapy a ovládání hry, či manipulovat s grafickým uživatelským rozhraním. Při tvorbě těchto pluginů je možné využít veškeré vlastnosti .NET 4.7.2, naší platfromy či enginu UrhoSharp. Dále je možné v rámci balíčku dodat knihovny používané pluginy.
+		
+		Diagram (upravený 3.12) ukazuje zapojení pluginů do struktury programu. Pluginy dělíme na typové pluginy, které jsou vytvářeny a uvolňovány spolu s balíčkem a reprezentují typy úrovní, hráčů, jednotek, budov či projektilů s různým chováním či vzhledem. Při vytvoření instance daného typu herního prvku je typový plugin použit pro vytvoření instančního pluginu, kterému jsou dále směrovány události v herním světě a který jejich obsluhami implementuje chování herního prvku.
+	}
+
+    \column{0.32}
+    \block{Herní svět}{
+		Na obrázku (3.10) můžeme vidět reprezentaci bežící úrovně z pohledu naší platformy. Třída LevelManager zde představuje centrální přístupový bod, který poskytuje přístup ke všem částem platformy pluginům i zbytku platformy. Dále můžeme vidět součásti zajišťující zpracování vstupu, uživatelského rozhraní, nástrojů pro editaci a ovládání úrovně, ovládání kamery, přístup k mapě a minimapě.
+		
+		Ukázku hry můžeme vidět na obrázku (nový obrázek).
+    }
+    
+    \block{Funkce platformy} {
+    	Z pohledu pluginů poskytuje platforma několik zásadních funkcí. 
+    	
+    	První z těchto funkcí je notifikace pluginů při událostech v herním světě. Příkladem může být přidání jednotky hráči, zničení jednotky hráče, zničení budovy, na které jednotka stojí, či pokus o změnu výšky terénu zabraného budovou. V neposlední řadě je pak plugin informován při každém výpočtu stavu platformy. Všechny tyto události jsou zpřístupněny jako virtuální metody předků pluginů.
+    	
+    	Na diagramu (nový diagram šíření onUpdate) můžeme vidět šíření události OnUpdate, tedy výpočtu stavu platformy. Platforma využívá pro svou implementaci engine UrhoSharp, ve kterém tato událost začíná. Následně se tato událost šíří grafem scény (obrázek 3.8), kde tuto událost obsluhují naše třídy Unit, Building atd., které jsou potomkem třídy Component. Tyto třídy následně přposílají tuto událost svému pluginu.
+    	
+    	Další funkcí je zjednodušený přístup ke zpracování uživatelského vstupu a ovládání uživatelského rozhraní. Návrh těchto systémů bere v potaz možné budoucí rozšíření na mobilní platformy, což můžeme vidět na diagramu (3.20), kde vidíme rozdělení systému pro jednotlivá schémata ovládání a využití návrhového vzoru Abstract Factory pro skrytí tohoto rozdělení před zbytkem platformy.
+    }
+
+	\block{Ovládání platformy} {
+		Mimo běh vlastní hry umožňuje platforma dále přístup k nastavením použitého herního enginu UrhoSharp, správu dostupných balíčků, úrovní v těchto balíčcích a v neposlední řadě uložených her. Ukázku obrazovky pro nastavení platformy a použitého herního enginu můžeme vidět na obrázku (nový obrázek nastavení). 
+	}
+\end{columns}
+\end{document}
